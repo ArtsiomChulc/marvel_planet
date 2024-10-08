@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   border: none;
+  font-size: 100%;
 }
 
 *,
@@ -15,6 +16,7 @@
 
 a, a:link, a:visited  {
   text-decoration: none;
+  font-size: inherit;
 }
 
 a:hover  {
@@ -22,6 +24,12 @@ a:hover  {
 }
 
 /* Common */
+
+body {
+  min-height: 100vh;
+  color: white;
+  background: #000;
+}
 
 aside, nav, footer, header, section, main {
   display: block;
