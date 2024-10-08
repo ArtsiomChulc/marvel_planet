@@ -1,8 +1,8 @@
-import s from 'Main.module.scss';
+import s from './Main.module.scss';
 
 export const Main = () => {
     return (
-        <div>
+        <div className={s.main}>
             main
         </div>
     );
