@@ -1,0 +1,33 @@
+.loader_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 7px;
+
+  & span {
+    position: absolute;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 100, 0, 0.5);
+    width:90%;
+    height: 50%;
+    background: rgba(0, 100, 0, 0.77);
+    animation: move 2s linear infinite;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-125vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
