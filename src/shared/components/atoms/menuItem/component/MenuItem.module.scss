@@ -8,7 +8,7 @@
   & a {
     text-align: center;
     color: white;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &.active {
       color: #bab9b9;
@@ -22,6 +22,4 @@
       }
     }
   }
-
-
 }

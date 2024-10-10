@@ -1,9 +1,15 @@
 .main_container {
   width: 100%;
   min-height: 100vh;
-  background-image: url("../../../assets/img/bc_main.webp");
+  background-image: url('../../../assets/img/bc_main.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+
+  .linear_bc {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(3, 3, 3, 0) -10%, #030303 95%);
+  }
 }
