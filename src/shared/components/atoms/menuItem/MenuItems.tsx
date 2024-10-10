@@ -7,6 +7,7 @@ export const MenuItems = () => {
     if (path) {
       return <MenuItem path={path} title={title} key={id} />;
     }
+    return null;
   });
   return <ul className={s.list_items}>{menuTitles}</ul>;
 };
