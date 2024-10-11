@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import { PATHS } from '../lib/path';
 import { Main } from '../../../pages/main/Main';
 import { Layout } from '../../components/layout/Layout';
+import { Stories } from '../../../pages/stories/Stories';
+import { Character } from '../../../pages/main/components/Character';
 
 export const router = createBrowserRouter([
   {
@@ -13,8 +15,12 @@ export const router = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: PATHS.characters,
-        element: <div>characters</div>,
+        path: PATHS.stories,
+        element: <Stories/>,
+      },
+      {
+        path: `${PATHS.characters}/:id`,
+        element: <Character />,
       },
     ],
   },

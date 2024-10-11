@@ -1,48 +1,72 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ApiResponse, InitialStateI } from '../../api/types/types';
+import { ApiResponse, Character, InitialStateI } from '../../api/types/types';
 import { apiMain } from '../../api/apiMain';
 
 const initialState: InitialStateI = {
   data: {
-    offset: 0,
-    limit: 20,
-    total: 0,
-    count: 0,
-    results: [],
+    code: 0,
+    status: '',
+    copyright: '',
+    attributionText: '',
+    attributionHTML: '',
+    data: {
+      offset: 0,
+      limit: 20,
+      total: 0,
+      count: 0,
+      results: [] as Character[],
+    },
+    etag: '',
   },
+  selectCharacter: {} as Character[],
   loading: false,
   error: null,
 };
 
-export const getMain = createAsyncThunk<ApiResponse, void>(
-  'mainSlice/getMain',
+export const getCharacters = createAsyncThunk<ApiResponse, void>(
+  'mainSlice/getCharacters',
   async () => {
-    const response = await apiMain.getAllProducts();
-    return (response.data) as ApiResponse;
-  }
+    const response = await apiMain.getCharacters();
+    return response.data;
+  },
+);
+
+export const getCharacterById = createAsyncThunk<ApiResponse, number>(
+  'mainSlice/getCharactersById',
+  async (id: number) => {
+    const response = await apiMain.getCharactersById(id);
+    return response.data;
+  },
 );
 
 export const mainSlice = createSlice({
   name: 'mainSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    clearSelectedCharacter: (state) => {
+      state.selectCharacter = null;
+    },
+  },
   extraReducers: builder => {
-    builder.addCase(getMain.pending, (state: InitialStateI) => {
+    builder.addCase(getCharacters.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(
-      getMain.fulfilled,
+      getCharacters.fulfilled,
       (state, action) => {
         state.loading = false;
-        state.data.results = action.payload.results;
-      }
+        state.data = action.payload;
+      },
     );
+    builder.addCase(getCharacterById.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getCharacterById.fulfilled, (state, action) => {
+      state.loading = false;
+      state.selectCharacter = action.payload.data.results;
+    });
   },
-  // selectors: {
-  //   loading: (state) => state.loading,
-  //   error: (state) => state.error,
-  //   results: (state) => state.data.results,
-  // },
 });
 
-// export const { loading, results, error } = mainSlice.selectors;
+export const { clearSelectedCharacter } = mainSlice.actions;
+

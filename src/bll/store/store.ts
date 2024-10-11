@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { mainSlice } from '../reducers/mainSlice';
+import { storiesSlice } from '../reducers/storiesSlice';
 
 export const store = configureStore({
   reducer: {
     main: mainSlice.reducer,
+    stories: storiesSlice.reducer
   },
 });
 

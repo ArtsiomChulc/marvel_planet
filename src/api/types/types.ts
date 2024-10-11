@@ -77,18 +77,26 @@ export interface Character {
   series: Series;
 }
 
-// Тип для основного ответа
 export interface ApiResponse {
-  offset: number;
-  limit: number;
-  total: number;
-  count: number;
-  results: Character[];
+  code: number;
+  status: string;
+  copyright: string;
+  attributionText: string;
+  attributionHTML: string;
+  data: {
+    offset: number;
+    limit: number;
+    total: number;
+    count: number;
+    results: Character[]; // здесь остаётся без изменений
+  };
+  etag: string;
 }
 
 // Начальное состояние
 export interface InitialStateI {
-  data: ApiResponse;
+  data: ApiResponse; // теперь это ApiResponse
   loading: boolean;
   error: string | null;
+  selectCharacter: Character[] | null;
 }
