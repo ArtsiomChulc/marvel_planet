@@ -14,6 +14,8 @@ export const Character = () => {
   const isLoading = useAppSelector(state => state.main.loading);
   const character = useAppSelector(state => state.main.selectCharacter);
 
+  console.log(character);
+
   useEffect(() => {
     if (id) {
       dispatch(getCharacterById(Number(id)));
@@ -38,11 +40,17 @@ export const Character = () => {
     return <div>No character found</div>;
   }
 
+  if (!character || character.length === 0) {
+    return <div>No character found</div>; // Проверка на пустой массив
+  }
+
+  const selectedCharacter = character[0];
+
   return (
     <div>
-      <h1>{character[0].name}</h1>
-      <img src={getSourceImg(character[0].thumbnail)} alt={character[0].name} />
-      <p>{character[0].description}</p>
+      <h1>{selectedCharacter.name}</h1>
+      <img src={getSourceImg(selectedCharacter.thumbnail)} alt={selectedCharacter.name} />
+      <p>{selectedCharacter.description}</p>
     </div>
   );
 };
