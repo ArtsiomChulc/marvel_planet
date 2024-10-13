@@ -98,5 +98,5 @@ export interface InitialStateI {
   data: ApiResponse; // теперь это ApiResponse
   loading: boolean;
   error: string | null;
-  selectCharacter: Character[] | null;
+  selectCharacter: Character[];
 }

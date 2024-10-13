@@ -44,7 +44,7 @@ export const mainSlice = createSlice({
   initialState,
   reducers: {
     clearSelectedCharacter: (state) => {
-      state.selectCharacter = null;
+      state.selectCharacter = [];
     },
   },
   extraReducers: builder => {

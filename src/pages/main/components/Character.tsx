@@ -12,7 +12,7 @@ export const Character = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
   const isLoading = useAppSelector(state => state.main.loading);
-  const character = useAppSelector(state => state.main.selectCharacter);
+  const character = useAppSelector(state => state.main.selectCharacter[0]);
 
   console.log(character);
 
@@ -37,20 +37,14 @@ export const Character = () => {
   }
 
   if (!character) {
-    return <div>No character found</div>;
-  }
-
-  if (!character || character.length === 0) {
     return <div>No character found</div>; // Проверка на пустой массив
   }
 
-  const selectedCharacter = character[0];
-
   return (
     <div>
-      <h1>{selectedCharacter.name}</h1>
-      <img src={getSourceImg(selectedCharacter.thumbnail)} alt={selectedCharacter.name} />
-      <p>{selectedCharacter.description}</p>
+      <h1>{character.name}</h1>
+      <img src={getSourceImg(character.thumbnail)} alt={character.name} />
+      <p>{character.description}</p>
     </div>
   );
 };
