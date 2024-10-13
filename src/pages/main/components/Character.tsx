@@ -6,15 +6,15 @@ import {
 } from '../../../bll/reducers/mainSlice';
 import { Loader } from '../../../shared/components/atoms/loader/Loader';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
-import { Thumbnail } from '../../../api/types/storiesType';
+import {
+  CardCharacter,
+} from '../../../shared/components/molecules/cardCharacter/CardCharacter';
 
 export const Character = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
   const isLoading = useAppSelector(state => state.main.loading);
   const character = useAppSelector(state => state.main.selectCharacter[0]);
-
-  console.log(character);
 
   useEffect(() => {
     if (id) {
@@ -25,26 +25,19 @@ export const Character = () => {
     };
   }, [dispatch, id]);
 
-  const getSourceImg = (thumb: Thumbnail | null) => {
-    if(thumb) {
-      return `${thumb.path}.${thumb.extension}`
-    }
-    return undefined
-  }
-
   if (isLoading) {
     return <Loader />;
   }
 
   if (!character) {
-    return <div>No character found</div>; // Проверка на пустой массив
+    return <div>No character found</div>;
   }
 
+  const cardName = character.name;
+  const cardDescription = character.description;
+  const cardSrc = character.thumbnail;
+
   return (
-    <div>
-      <h1>{character.name}</h1>
-      <img src={getSourceImg(character.thumbnail)} alt={character.name} />
-      <p>{character.description}</p>
-    </div>
+    <CardCharacter name={cardName} description={cardDescription} src={cardSrc} />
   );
 };
