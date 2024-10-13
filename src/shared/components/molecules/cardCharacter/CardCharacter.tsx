@@ -1,7 +1,7 @@
 import { getSourceImg } from '../../../helpers/getSrc';
-import s from './CardCharacter.module.scss';
 import { Thumbnail } from '../../../../api/types/storiesType';
 import { useNavigate } from 'react-router-dom';
+import s from './CardCharacter.module.scss';
 
 type Props = {
   description?: string
