@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { PATHS } from '../lib/path';
-import { Main } from '../../../pages/main/Main';
+import { Characters } from '../../../pages/main/Characters';
 import { Layout } from '../../components/layout/Layout';
 import { Stories } from '../../../pages/stories/Stories';
 import { Character } from '../../../pages/main/components/Character';
+import { GetCharacters } from '../../../features/getCharacters/GetCharacters';
 
 export const router = createBrowserRouter([
   {
@@ -12,14 +13,14 @@ export const router = createBrowserRouter([
     children: [
       {
         path: PATHS.main,
-        element: <Main />,
+        element: <GetCharacters />,
       },
       {
         path: PATHS.stories,
         element: <Stories/>,
       },
       {
-        path: `${PATHS.characters}/:id`,
+        path: `${PATHS.character}/:id`,
         element: <Character />,
       },
     ],
