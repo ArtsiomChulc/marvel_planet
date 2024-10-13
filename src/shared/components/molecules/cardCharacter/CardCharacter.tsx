@@ -27,7 +27,7 @@ export const CardCharacter = ({src, name, description, id}: Props) => {
       <div className={s.tex_wrapper}>
         <h3
           className={s.name_card}>{name}</h3>
-        <p className={s.card_description}>{description || 'No description'}</p>
+        <p className={s.card_description}>{description}</p>
       </div>
     </div>
   );
