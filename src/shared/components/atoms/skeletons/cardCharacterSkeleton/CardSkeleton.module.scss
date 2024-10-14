@@ -1,0 +1,48 @@
+.card_skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  height: 400px;
+  background: #505050;
+  padding: 10px;
+  margin: 0 auto;
+
+  .img_skeleton {
+    width: 250px;
+    height: 270px;
+  }
+
+  .img_skeleton,
+  .text_skeleton {
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(
+                    to right,
+                    #505050 0%,
+                    #606060 50%,
+                    #505050 100%
+    );
+    background-size: 200% auto;
+    background-repeat: no-repeat;
+    animation: diagonal-stripes 1.5s infinite;
+  }
+
+  .text_skeleton {
+    width: 150px;
+    height: 20px;
+    align-self: flex-start;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes diagonal-stripes {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
