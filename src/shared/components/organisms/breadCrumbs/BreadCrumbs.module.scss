@@ -1,0 +1,38 @@
+.crumbs {
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  gap: 15px;
+
+  .crumb {
+font-size: 20px;
+    a {
+      color: #d8dcea;
+      text-decoration: underline;
+      text-transform: capitalize;
+      transition: color .2s ease-in-out;
+
+      &:hover {
+        color: #94a9f3;
+      }
+    }
+
+    .last_crumb {
+      text-decoration: none;
+      pointer-events: none;
+    }
+
+    &:after {
+      content: '>';
+      display: inline-block;
+      padding-left: 15px;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
