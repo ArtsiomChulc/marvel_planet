@@ -15,7 +15,7 @@ export const CardCharacter = ({src, name, description, id}: Props) => {
 
   const getSelectCharacter = (id: number | undefined) => {
     if (id) {
-      navigate(`/character/${id}`);
+      navigate(`/characters/${id}`);
     }
   }
 

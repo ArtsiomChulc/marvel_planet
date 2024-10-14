@@ -1,5 +1,5 @@
 export const PATHS: Record<string, string> = {
   main: '/',
-  character: '/character',
+  characters: '/characters',
   stories: '/stories',
 };

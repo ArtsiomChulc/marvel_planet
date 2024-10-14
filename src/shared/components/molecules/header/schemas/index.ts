@@ -5,7 +5,7 @@ export const menuItemsText: MenuItemsText[] = [
   {
     id: 1,
     title: 'Characters',
-    path: PATHS.main,
+    path: PATHS.characters,
   },
   {
     id: 2,
