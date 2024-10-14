@@ -24,7 +24,7 @@ export const CardCharacter = ({src, name, description, id}: Props) => {
       <div className={s.imgBox}>
         <img src={getSourceImg(src)} alt={name} />
       </div>
-      <div className={s.tex_wrapper}>
+      <div className={s.text_wrapper}>
         <h3
           className={s.name_card}>{name}</h3>
         <p className={s.card_description}>{description}</p>
