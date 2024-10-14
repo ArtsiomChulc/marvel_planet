@@ -4,11 +4,13 @@ import {
   clearSelectedCharacter,
   getCharacterById,
 } from '../../../bll/reducers/mainSlice';
-import { Loader } from '../../../shared/components/atoms/loader/Loader';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import {
   CardCharacter,
 } from '../../../shared/components/molecules/cardCharacter/CardCharacter';
+import {
+  CardSkeleton,
+} from '../../../shared/components/atoms/skeletons/cardCharacterSkeleton/CardSkeleton';
 
 export const Character = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +28,7 @@ export const Character = () => {
   }, [dispatch, id]);
 
   if (isLoading) {
-    return <Loader />;
+    return <CardSkeleton />;
   }
 
   if (!character) {
