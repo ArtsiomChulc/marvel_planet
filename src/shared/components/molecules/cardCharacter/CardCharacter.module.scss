@@ -1,8 +1,10 @@
 .cardContainer {
   width: 300px;
-  background: white;
+  background: #1e1e1e;
   cursor: pointer;
   margin: 0 auto;
+  border-radius: 10px;
+  color: white;
 
   .imgBox {
     width: 100%;
@@ -13,13 +15,12 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       background: transparent;
     }
   }
 
   .text_wrapper {
-    color: #000;
     text-align: left;
     padding-left: 15px;
     padding-right: 10px;
