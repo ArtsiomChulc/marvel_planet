@@ -2,8 +2,10 @@ import { createBrowserRouter } from 'react-router-dom';
 import { PATHS } from '../lib/path';
 import { Layout } from '../../components/layout/Layout';
 import { Stories } from '../../../pages/stories/Stories';
-import { Character } from '../../../pages/main/components/Character';
+import { Character } from '../../../pages/characters/components/Character';
 import { GetCharacters } from '../../../features/getCharacters/GetCharacters';
+import { Home } from '../../../pages/home/Home';
+import { Creators } from '../../../pages/creators/Creators';
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +14,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: PATHS.main,
-        element: <div>main</div>,
+        element: <Home/>,
       },
       {
         path: PATHS.characters,
@@ -25,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: `${PATHS.characters}/:id`,
         element: <Character />,
+      },
+      {
+        path: PATHS.creators,
+        element: <Creators/>,
       },
     ],
   },

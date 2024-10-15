@@ -3,6 +3,11 @@ import { PATHS } from '../../../../../app/router/lib/path';
 
 export const menuItemsText: MenuItemsText[] = [
   {
+    id: 100,
+    title: 'Home',
+    path: PATHS.main,
+  },
+  {
     id: 1,
     title: 'Characters',
     path: PATHS.characters,
@@ -14,7 +19,8 @@ export const menuItemsText: MenuItemsText[] = [
   },
   {
     id: 3,
-    title: 'Games',
+    title: 'Creators',
+    path: PATHS.creators,
   },
   {
     id: 4,

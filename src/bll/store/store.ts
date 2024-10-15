@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { mainSlice } from '../reducers/mainSlice';
+import { charactersSlice } from '../reducers/charactersSlice';
 import { storiesSlice } from '../reducers/storiesSlice';
+import { creatorsSlice } from '../reducers/creatorsSlice';
 
 export const store = configureStore({
   reducer: {
-    main: mainSlice.reducer,
+    creators: creatorsSlice.reducer,
+    characters: charactersSlice.reducer,
     stories: storiesSlice.reducer
   },
 });
