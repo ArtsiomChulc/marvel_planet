@@ -14,7 +14,9 @@ export const Layout = () => {
         <Header />
         <BreadCrumbs/>
         <Suspense fallback={<Loader />}>
-          <Outlet />
+          <div className={s.pages_container}>
+            <Outlet />
+          </div>
         </Suspense>
         <div>Footer</div>
       </div>
