@@ -1,15 +1,15 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import { useEffect } from 'react';
-import { getCharacters } from '../../bll/reducers/mainSlice';
-import { Characters } from '../../pages/main/Characters';
+import { getCharacters } from '../../bll/reducers/charactersSlice';
+import { Characters } from '../../pages/characters/Characters';
 import {
   CardSkeleton,
 } from '../../shared/components/atoms/skeletons/cardCharacterSkeleton/CardSkeleton';
 
 export const GetCharacters = () => {
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(state => state.main.loading);
-  const characters = useAppSelector(state => state.main.data.data.results);
+  const isLoading = useAppSelector(state => state.characters.loading);
+  const characters = useAppSelector(state => state.characters.data.data.results);
 
   const skeletonCount = 10;
 
@@ -19,7 +19,7 @@ export const GetCharacters = () => {
     );
   };
   useEffect(() => {
-    dispatch(getCharacters());
+    dispatch(getCharacters('hulk'));
   }, [dispatch]);
 
 
@@ -34,6 +34,7 @@ export const GetCharacters = () => {
           display: 'flex',
           flexWrap: 'wrap', alignItems: 'center',
           justifyContent: 'space-between',
+          gap: 15
         }}>
           {getSkeletons()}
         </div>

@@ -1,5 +1,5 @@
-import s from './Main.module.scss';
-import { Character } from '../../api/types/types';
+import s from './Characters.module.scss';
+import { Character } from '../../api/types/charactersTypes';
 import {
   CardCharacter,
 } from '../../shared/components/molecules/cardCharacter/CardCharacter';
@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const Characters = ({ characters }: Props) => {
-  const isLoading = useAppSelector(state => state.main.loading);
+  const isLoading = useAppSelector(state => state.characters.loading);
 
   const charactersItems = () => {
     if (characters.length !== 0 && !isLoading) {

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ApiResponse, Character, InitialStateI } from '../../api/types/types';
+import { ApiResponse, Character, InitialStateI } from '../../api/types/charactersTypes';
 import { apiMain } from '../../api/apiMain';
 
 const initialState: InitialStateI = {
@@ -23,10 +23,10 @@ const initialState: InitialStateI = {
   error: null,
 };
 
-export const getCharacters = createAsyncThunk<ApiResponse, void>(
+export const getCharacters = createAsyncThunk<ApiResponse, string | undefined>(
   'mainSlice/getCharacters',
-  async () => {
-    const response = await apiMain.getCharacters();
+  async (value) => {
+    const response = await apiMain.getCharacters(value);
     return response.data;
   },
 );
@@ -39,7 +39,7 @@ export const getCharacterById = createAsyncThunk<ApiResponse, number>(
   },
 );
 
-export const mainSlice = createSlice({
+export const charactersSlice = createSlice({
   name: 'mainSlice',
   initialState,
   reducers: {
@@ -68,5 +68,5 @@ export const mainSlice = createSlice({
   },
 });
 
-export const { clearSelectedCharacter } = mainSlice.actions;
+export const { clearSelectedCharacter } = charactersSlice.actions;
 

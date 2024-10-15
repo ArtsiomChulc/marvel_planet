@@ -19,7 +19,6 @@ export const BreadCrumbs = () => {
         </div>
       );
     });
-  console.log(crumbs);
 
   return (
     <div className={s.crumbs}>

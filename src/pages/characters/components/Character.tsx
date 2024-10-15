@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import {
   clearSelectedCharacter,
   getCharacterById,
-} from '../../../bll/reducers/mainSlice';
+} from '../../../bll/reducers/charactersSlice';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import {
   CardCharacter,
@@ -15,8 +15,8 @@ import {
 export const Character = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
-  const isLoading = useAppSelector(state => state.main.loading);
-  const character = useAppSelector(state => state.main.selectCharacter[0]);
+  const isLoading = useAppSelector(state => state.characters.loading);
+  const character = useAppSelector(state => state.characters.selectCharacter[0]);
 
   useEffect(() => {
     if (id) {
