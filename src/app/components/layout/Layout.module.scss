@@ -11,5 +11,14 @@
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(180deg, rgba(3, 3, 3, 0) -10%, #030303 95%);
+
+    .pages_container {
+      max-width: 1200px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
