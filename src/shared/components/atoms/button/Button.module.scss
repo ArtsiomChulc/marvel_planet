@@ -1,0 +1,9 @@
+.button {
+  padding: 10px 15px;
+  background: blue;
+  border-radius: 6px;
+
+  @media screen and (max-width: 490px){
+    width: 100%;
+  }
+}
