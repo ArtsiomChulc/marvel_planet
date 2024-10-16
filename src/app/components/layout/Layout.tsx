@@ -6,6 +6,7 @@ import s from './Layout.module.scss';
 import {
   BreadCrumbs
 } from '../../../shared/components/organisms/breadCrumbs/BreadCrumbs';
+import { Footer } from '../../../shared/components/molecules/footer/Footer';
 
 export const Layout = () => {
   return (
@@ -18,7 +19,7 @@ export const Layout = () => {
             <Outlet />
           </div>
         </Suspense>
-        <div>Footer</div>
+        <Footer/>
       </div>
     </div>
   );

@@ -8,17 +8,22 @@
   background-attachment: fixed;
 
   .linear_bc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(180deg, rgba(3, 3, 3, 0) -10%, #030303 95%);
 
     .pages_container {
       max-width: 1200px;
+      width: 100%;
       padding: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      flex: 1 0 auto;
     }
   }
 }
