@@ -92,5 +92,5 @@ export interface InitialStateI {
   loading: boolean;
   error: string | null;
   selectCharacter: Character[];
-  foundCharacter: Character[];
+  foundCharacter: Character[] | null;
 }

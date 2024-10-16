@@ -1,4 +1,4 @@
-.page_container {
+.form_container {
   max-width: 800px;
   width: 100%;
   background: #606060;
@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 20px;
 
   @media screen and (max-width: 490px){
     flex-wrap: wrap;

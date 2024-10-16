@@ -19,7 +19,7 @@ const initialState: InitialStateI = {
     etag: '',
   },
   selectCharacter: [] as Character[],
-  foundCharacter: [] as Character[],
+  foundCharacter: null,
   loading: false,
   error: null,
 };
@@ -55,6 +55,9 @@ export const charactersSlice = createSlice({
     clearSelectedCharacter: (state) => {
       state.selectCharacter = [];
     },
+    clearFoundCharacter: (state) => {
+      state.foundCharacter = null;
+    },
   },
   extraReducers: builder => {
     builder.addCase(getCharacters.pending, (state) => {
@@ -84,5 +87,5 @@ export const charactersSlice = createSlice({
   },
 });
 
-export const { clearSelectedCharacter } = charactersSlice.actions;
+export const { clearSelectedCharacter, clearFoundCharacter } = charactersSlice.actions;
 

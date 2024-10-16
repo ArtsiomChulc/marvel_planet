@@ -3,6 +3,9 @@
   width: 100%;
   max-width: 800px;
   position: relative;
+  background: transparent;
+  padding: 16px;
+
 
   .input {
     width: 100%;
@@ -12,6 +15,14 @@
     font-size: 18px;
     outline: none;
 
+    &.input_active {
+      border: 2px solid #ccc; // Цвет для активного состояния
+    }
+
+    &.input_error {
+      border: 2px solid red; // Цвет для состояния ошибки
+    }
+
     &:focus {
       border: 2px solid #ccc;
       outline: none;
@@ -20,8 +31,8 @@
 
   .input_label {
     position: absolute;
-    top: 12px;
-    left: 5px;
+    top: 27px;
+    left: 35px;
     background: #606060;
     color: rgba(255, 255, 255, 0.63);
     padding-inline: 10px;
@@ -29,18 +40,33 @@
     z-index: 1;
     transition: all 0.2s ease-in-out;
 
+    &.input_label_active {
+      top: 7px;
+      left: 37px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
     .input:focus + & {
-      top: -10px;
-      left: 20px;
+      top: 7px;
+      left: 37px;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.8);;
     }
   }
+
+  .input_error_message {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    bottom: -5px;
+    left: 20px;
+  }
 }
 
 .input_container:focus-within .input_label {
-  top: -10px;
-  left: 20px;
+  top: 7px;
+  left: 37px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
 }
