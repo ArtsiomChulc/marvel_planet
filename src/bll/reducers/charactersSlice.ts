@@ -18,15 +18,24 @@ const initialState: InitialStateI = {
     },
     etag: '',
   },
-  selectCharacter: {} as Character[],
+  selectCharacter: [] as Character[],
+  foundCharacter: [] as Character[],
   loading: false,
   error: null,
 };
 
-export const getCharacters = createAsyncThunk<ApiResponse, string | undefined>(
+export const getCharacters = createAsyncThunk<ApiResponse, void>(
   'mainSlice/getCharacters',
+  async () => {
+    const response = await apiMain.getCharacters();
+    return response.data;
+  },
+);
+
+export const getCharacterBySearch = createAsyncThunk<ApiResponse, string>(
+  'mainSlice/getCharacterBySearch',
   async (value) => {
-    const response = await apiMain.getCharacters(value);
+    const response = await apiMain.getCharacterBySearch(value);
     return response.data;
   },
 );
@@ -58,6 +67,13 @@ export const charactersSlice = createSlice({
         state.data = action.payload;
       },
     );
+    builder.addCase(getCharacterBySearch.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getCharacterBySearch.fulfilled, (state, action) => {
+      state.loading = false;
+      state.foundCharacter = action.payload.data.results;
+    });
     builder.addCase(getCharacterById.pending, (state) => {
       state.loading = true;
     });

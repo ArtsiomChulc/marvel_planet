@@ -3,7 +3,7 @@ import s from './Home.module.scss';
 import { Button } from '../../shared/components/atoms/button/Button';
 import { ChangeEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
-import { getCharacters } from '../../bll/reducers/charactersSlice';
+import { getCharacterBySearch } from '../../bll/reducers/charactersSlice';
 import {
   CardCharacter,
 } from '../../shared/components/molecules/cardCharacter/CardCharacter';
@@ -11,7 +11,7 @@ import {
 export const Home = () => {
   const dispatch = useAppDispatch();
 
-  const characters = useAppSelector(state => state.characters.data.data.results);
+  const foundCharacters = useAppSelector(state => state.characters.foundCharacter);
 
   const [value, setValue] = useState('');
 
@@ -21,12 +21,12 @@ export const Home = () => {
 
   const getSearchCharacter = () => {
     if (value.trim()) {
-      dispatch(getCharacters(value));
+      dispatch(getCharacterBySearch(value));
     }
-    setValue('')
+    setValue('');
   };
 
-  const result = characters.map(({ name, thumbnail, id }) => {
+  const result = foundCharacters?.map(({ name, thumbnail, id }) => {
     return <CardCharacter name={name} src={thumbnail} key={id} />;
   });
 

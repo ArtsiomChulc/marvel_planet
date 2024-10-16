@@ -16,7 +16,8 @@ export const Character = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
   const isLoading = useAppSelector(state => state.characters.loading);
-  const character = useAppSelector(state => state.characters.selectCharacter[0]);
+  const selectCharacter = useAppSelector(state => state.characters.selectCharacter);
+  const character = selectCharacter && selectCharacter.length > 0 ? selectCharacter[0] : null;
 
   useEffect(() => {
     if (id) {

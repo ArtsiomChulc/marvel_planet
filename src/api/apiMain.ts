@@ -8,6 +8,9 @@ export const apiMain = {
     const query = nameStartsWith ? `?nameStartsWith=${nameStartsWith}` : '';
     return axiosInstance.get<ApiResponse>(`characters${query}`);
   },
+  getCharacterBySearch(nameStartsWith: string) {
+    return axiosInstance.get<ApiResponse>(`characters?nameStartsWith=${nameStartsWith}`);
+  },
   getCharactersById(id: number) {
     return axiosInstance.get<ApiResponse>(`characters/${id}`);
   },

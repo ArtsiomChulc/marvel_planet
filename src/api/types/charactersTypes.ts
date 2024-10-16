@@ -3,13 +3,11 @@ interface Url {
   url: string;
 }
 
-// Тип для элемента "thumbnail"
 interface Thumbnail {
   path: string;
   extension: string;
 }
 
-// Тип для элемента "comics"
 interface ComicItem {
   resourceURI: string;
   name: string;
@@ -22,7 +20,6 @@ interface Comics {
   items: ComicItem[];
 }
 
-// Тип для элемента "stories"
 interface StoryItem {
   resourceURI: string;
   name: string;
@@ -36,7 +33,6 @@ interface Stories {
   items: StoryItem[];
 }
 
-// Тип для элемента "events"
 interface EventItem {
   resourceURI: string;
   name: string;
@@ -49,7 +45,6 @@ interface Events {
   items: EventItem[];
 }
 
-// Тип для элемента "series"
 interface SeriesItem {
   resourceURI: string;
   name: string;
@@ -62,7 +57,6 @@ interface Series {
   items: SeriesItem[];
 }
 
-// Основной тип для результата
 export interface Character {
   id: number;
   name: string;
@@ -88,15 +82,15 @@ export interface ApiResponse {
     limit: number;
     total: number;
     count: number;
-    results: Character[]; // здесь остаётся без изменений
+    results: Character[];
   };
   etag: string;
 }
 
-// Начальное состояние
 export interface InitialStateI {
-  data: ApiResponse; // теперь это ApiResponse
+  data: ApiResponse;
   loading: boolean;
   error: string | null;
   selectCharacter: Character[];
+  foundCharacter: Character[];
 }

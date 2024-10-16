@@ -19,7 +19,7 @@ export const GetCharacters = () => {
     );
   };
   useEffect(() => {
-    dispatch(getCharacters('hulk'));
+    dispatch(getCharacters());
   }, [dispatch]);
 
 
@@ -34,7 +34,7 @@ export const GetCharacters = () => {
           display: 'flex',
           flexWrap: 'wrap', alignItems: 'center',
           justifyContent: 'space-between',
-          gap: 15
+          gap: 15,
         }}>
           {getSkeletons()}
         </div>
