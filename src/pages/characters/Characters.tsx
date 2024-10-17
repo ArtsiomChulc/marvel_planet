@@ -36,7 +36,7 @@ export const Characters = ({ characters, currentPage, onChangePage, pageCount }:
                     showFirstPage
                     showLastPage
                     visibleCount={7}
-                    arrows={[{ label: 'Prev' }, { label: 'Next' }]}
+                    arrows={[true, true]}
                     form={'brick'}
                     size={'m'}
                     className={'pagination'}
@@ -54,7 +54,7 @@ export const Characters = ({ characters, currentPage, onChangePage, pageCount }:
                     showFirstPage
                     showLastPage
                     visibleCount={7}
-                    arrows={[{ label: 'Prev' }, { label: 'Next' }]}
+                    arrows={[true, true]}
                     form={'brick'}
                     size={'m'}
                     className={'pagination'}
