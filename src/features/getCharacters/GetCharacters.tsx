@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getCharacters } from '../../bll/reducers/charactersSlice';
 import { Characters } from '../../pages/characters/Characters';
 import {
@@ -7,11 +7,14 @@ import {
 } from '../../shared/components/atoms/skeletons/cardCharacterSkeleton/CardSkeleton';
 
 export const GetCharacters = () => {
-  const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(state => state.characters.loading);
-  const characters = useAppSelector(state => state.characters.data.data.results);
+  const [currentPage, setCurrentPage] = useState(1);
+  const limit = 10;
 
-  const skeletonCount = 10;
+  const dispatch = useAppDispatch();
+  const { data, loading: isLoading } = useAppSelector(state => state.characters);
+  const { results, total } = data.data;
+
+  const skeletonCount = 6;
 
   const getSkeletons = () => {
     return Array.from({ length: skeletonCount }, (_, i) =>
@@ -19,11 +22,20 @@ export const GetCharacters = () => {
     );
   };
   useEffect(() => {
-    dispatch(getCharacters());
-  }, [dispatch]);
+    const offset = (currentPage - 1) * limit;
+    dispatch(getCharacters({ offset, limit }));
+  }, [dispatch, currentPage]);
+
+  const totalPages = Math.ceil(total / limit);
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
 
-  if (!characters) {
+  if (!results) {
     return <div>No characters found</div>;
   }
 
@@ -39,7 +51,7 @@ export const GetCharacters = () => {
           {getSkeletons()}
         </div>
       ) : (
-        <Characters characters={characters} />
+        <Characters characters={results} currentPage={currentPage} pageCount={totalPages} onChangePage={handlePageChange} />
       )}
     </>
   );

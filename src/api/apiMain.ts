@@ -4,9 +4,8 @@ import { ApiResponseStories } from './types/storiesType';
 import { IResponseCreator } from './types/creatorsType';
 
 export const apiMain = {
-  getCharacters(nameStartsWith?: string) {
-    const query = nameStartsWith ? `?nameStartsWith=${nameStartsWith}` : '';
-    return axiosInstance.get<ApiResponse>(`characters${query}`);
+  getCharacters(offset: number = 0, limit: number = 10) {
+        return axiosInstance.get<ApiResponse>(`characters?offset=${offset}&limit=${limit}`);
   },
   getCharacterBySearch(nameStartsWith: string) {
     return axiosInstance.get<ApiResponse>(`characters?nameStartsWith=${nameStartsWith}`);

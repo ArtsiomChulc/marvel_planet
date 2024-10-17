@@ -73,6 +73,7 @@ export const Home = () => {
 
   const clearCharacters = () => {
     dispatch(clearFoundCharacter());
+    setValue('');
   }
 
   const result = foundCharacters?.map(({ name, thumbnail, id }) => {

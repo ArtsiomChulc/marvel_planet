@@ -24,10 +24,10 @@ const initialState: InitialStateI = {
   error: null,
 };
 
-export const getCharacters = createAsyncThunk<ApiResponse, void>(
+export const getCharacters = createAsyncThunk<ApiResponse, {offset: number, limit: number}>(
   'mainSlice/getCharacters',
-  async () => {
-    const response = await apiMain.getCharacters();
+  async ({offset, limit}) => {
+    const response = await apiMain.getCharacters(offset, limit);
     return response.data;
   },
 );

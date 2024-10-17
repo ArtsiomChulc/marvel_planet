@@ -1,0 +1,13 @@
+.pagination {
+    padding: 5px;
+    background-color: rgba(48, 243, 243, 0.78);
+    border-radius: 5px;
+
+    div > button {
+        color: #f0fffa;
+    }
+}
+
+.PaginationItem_active {
+    background-color: #686877;
+}

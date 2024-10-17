@@ -5,3 +5,11 @@
   flex-wrap: wrap;
   gap: 15px;
 }
+
+.pagination_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 15px;
+  margin-inline: 15px;
+}
