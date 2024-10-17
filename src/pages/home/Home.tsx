@@ -9,11 +9,11 @@ import {
 import {
   CardCharacter,
 } from '../../shared/components/molecules/cardCharacter/CardCharacter';
-import { Loader } from '../../shared/components/atoms/loader/Loader';
 import s from './Home.module.scss';
 import {
-  NotFoundCharacters
+  NotFoundCharacters,
 } from '../../shared/components/atoms/notFoundCharacters/NotFoundCharacters';
+import { PreLoader } from '../../shared/components/atoms/preLoader/PreLoader';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
@@ -30,15 +30,15 @@ export const Home = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(clearFoundCharacter())
-      setValue('')
-    }
+      dispatch(clearFoundCharacter());
+      setValue('');
+    };
   }, [dispatch]);
 
   const getValue = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
     if (error) {
-      setError(false)
+      setError(false);
       setErrorMessage('');
     }
   };
@@ -56,14 +56,14 @@ export const Home = () => {
 
   const handleBlur = () => {
     if (!value) {
-      setFocus(false)
-      setError(false)
+      setFocus(false);
+      setError(false);
     }
-  }
+  };
 
   const handleFocus = () => {
-    setFocus(true)
-  }
+    setFocus(true);
+  };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -90,10 +90,10 @@ export const Home = () => {
         <Button title={'Search'} onClick={getSearchCharacter} />
       </div>
       <div className={s.result_container}>
-        {isLoading ? (
-          <Loader />
+        {!isLoading ? (
+          <PreLoader />
         ) : result && result.length === 0 ? (
-          <NotFoundCharacters/>
+          <NotFoundCharacters />
         ) : (
           result
         )}
