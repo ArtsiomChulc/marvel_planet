@@ -7,3 +7,12 @@
   border-bottom: 5px outset rgba(255,255,255,0.15);
   border-radius: 0 0 10px 10px;
 }
+
+.blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
