@@ -71,6 +71,10 @@ export const Home = () => {
     }
   };
 
+  const clearCharacters = () => {
+    dispatch(clearFoundCharacter());
+  }
+
   const result = foundCharacters?.map(({ name, thumbnail, id }) => {
     return <CardCharacter name={name} src={thumbnail} key={id} />;
   });
@@ -95,7 +99,10 @@ export const Home = () => {
         ) : result && result.length === 0 ? (
           <NotFoundCharacters />
         ) : (
-          result
+          <div className={s.wrap_result}>
+            {result && result.length > 0 && <Button onClick={clearCharacters} title={'Clear'} />}
+            {result}
+          </div>
         )}
       </div>
     </>

@@ -22,4 +22,10 @@
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+
+  .wrap_result {
+    button {
+      margin-bottom: 15px;
+    }
+  }
 }
