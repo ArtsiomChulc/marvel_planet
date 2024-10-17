@@ -1,7 +1,7 @@
 import { MenuItemsDesktop } from '../../atoms/menuItem/MenuItemsDesktop';
 import s from './Header.module.scss';
 import { HeaderIcon } from '../../atoms/headerIcon/HeaderIcon';
-import { Burger } from '../../atoms/burger/Burger';
+import { Burger } from '../../atoms/burger/burgerOpen/Burger';
 import { useState } from 'react';
 import { MenuItemsMobile } from '../../atoms/menuItem/MenuItemsMobile';
 

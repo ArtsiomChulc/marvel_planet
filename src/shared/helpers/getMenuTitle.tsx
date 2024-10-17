@@ -1,5 +1,5 @@
 import { MenuItemsText } from '../commonTypes';
-import s from '../components/atoms/menuItem/component/MenuItem.module.scss';
+import s from '../components/atoms/menuItem/MenuItems.module.scss';
 import { NavLink } from 'react-router-dom';
 
 export const getMenuTitle = (array: MenuItemsText[]) => {

@@ -3,6 +3,7 @@ import { MenuItem } from './component/MenuItem';
 import { useEffect, useRef } from 'react';
 import useClickOutside from '../../../helpers/hooks/useClickOutside';
 import { useLocation } from 'react-router-dom';
+import { CrossBurger } from '../burger/burgerClose/CrossBurger';
 
 type Props = {
   isOpen: boolean;
@@ -29,10 +30,7 @@ export const MenuItemsMobile = ({isOpen, setOpen}: Props) => {
 
   return (
     <div ref={menuRef} className={`${s.mobile_menu_container} ${isOpen ? s.open_menu : ''}`}>
-      <div className={s.close_btn_wrap} onClick={closeMenu}>
-        <span></span>
-        <span></span>
-      </div>
+      <CrossBurger closeMenu={closeMenu}/>
       <ul className={s.menu_item_mobile}>
         <MenuItem />
       </ul>

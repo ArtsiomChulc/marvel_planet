@@ -59,33 +59,6 @@
     right: 0;
   }
 
-  .close_btn_wrap {
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
-    gap: 14px;
-    justify-content: center;
-    flex-direction: column;
-    padding: 5px;
-
-    span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: white;
-
-      &:nth-child(1) {
-        transform: rotate(45deg) translate(12px, 10px);
-      }
-      &:nth-child(2) {
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
   .menu_item_mobile {
     flex-direction: column;
     height: 100%;
