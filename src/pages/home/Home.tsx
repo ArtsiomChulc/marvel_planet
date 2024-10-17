@@ -90,7 +90,7 @@ export const Home = () => {
         <Button title={'Search'} onClick={getSearchCharacter} />
       </div>
       <div className={s.result_container}>
-        {!isLoading ? (
+        {isLoading ? (
           <PreLoader />
         ) : result && result.length === 0 ? (
           <NotFoundCharacters />
