@@ -6,6 +6,8 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
 
   .linear_bc {
     display: flex;
