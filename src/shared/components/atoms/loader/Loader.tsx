@@ -2,8 +2,8 @@ import s from './Loader.module.scss';
 
 export const Loader = () => {
   return (
-    <div className={s.loader_container}>
-      <span></span>
+    <div className={s.loader}>
+      <div className={s.spinner}></div>
     </div>
   );
 };
