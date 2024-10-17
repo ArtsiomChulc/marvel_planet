@@ -1,5 +1,4 @@
 import { Input } from '../../shared/components/atoms/input/Input';
-import s from './Home.module.scss';
 import { Button } from '../../shared/components/atoms/button/Button';
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
@@ -11,6 +10,10 @@ import {
   CardCharacter,
 } from '../../shared/components/molecules/cardCharacter/CardCharacter';
 import { Loader } from '../../shared/components/atoms/loader/Loader';
+import s from './Home.module.scss';
+import {
+  NotFoundCharacters
+} from '../../shared/components/atoms/notFoundCharacters/NotFoundCharacters';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
@@ -90,7 +93,7 @@ export const Home = () => {
         {isLoading ? (
           <Loader />
         ) : result && result.length === 0 ? (
-          <div>not found</div>
+          <NotFoundCharacters/>
         ) : (
           result
         )}
