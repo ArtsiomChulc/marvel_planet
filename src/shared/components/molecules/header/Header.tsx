@@ -12,11 +12,6 @@ export const Header = () => {
     setOpen(true);
   }
 
-  const closeMenu = () => {
-    setOpen(false);
-  }
-
-
   return (
     <div className={s.header_container}>
       <HeaderIcon />
@@ -24,7 +19,7 @@ export const Header = () => {
 
       <Burger onClick={openMenu}/>
 
-      <MenuItemsMobile onClose={closeMenu} isOpen={isOpen}/>
+      <MenuItemsMobile setOpen={setOpen} isOpen={isOpen}/>
 
       {isOpen && <div className={s.blur}></div>}
     </div>
