@@ -4,6 +4,7 @@ import { HeaderIcon } from '../../atoms/headerIcon/HeaderIcon';
 import { Burger } from '../../atoms/burger/burgerOpen/Burger';
 import { useState } from 'react';
 import { MenuItemsMobile } from '../../atoms/menuItem/MenuItemsMobile';
+import { Blur } from '../../atoms/blur/Blur';
 
 export const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -21,7 +22,7 @@ export const Header = () => {
 
       <MenuItemsMobile setOpen={setOpen} isOpen={isOpen}/>
 
-      {isOpen && <div className={s.blur}></div>}
+      {isOpen && <Blur/>}
     </div>
   );
 };
