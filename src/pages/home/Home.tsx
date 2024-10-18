@@ -9,11 +9,14 @@ import {
 import {
   CardCharacter,
 } from '../../shared/components/molecules/cardCharacter/CardCharacter';
-import s from './Home.module.scss';
 import {
   NotFoundCharacters,
 } from '../../shared/components/atoms/notFoundCharacters/NotFoundCharacters';
 import { PreLoader } from '../../shared/components/atoms/preLoader/PreLoader';
+import s from './Home.module.scss';
+import {
+  DescriptionMainPage
+} from '../../shared/components/atoms/descriptionMainPage/DescriptionMainPage';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
@@ -82,6 +85,8 @@ export const Home = () => {
 
   return (
     <>
+      <DescriptionMainPage title={'Search Marvel Heroes'} description={'Enter a search query,' +
+        ' click on the search button and get a list of your favorite Marvel heroes'}/>
       <div className={s.form_container}>
         <Input label={'Enter to search...'}
                value={value} onChange={getValue}
