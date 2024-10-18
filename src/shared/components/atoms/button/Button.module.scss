@@ -1,9 +1,30 @@
 .button {
-  padding: 10px 15px;
-  background: blue;
+  padding-inline: 45px;
+  height: 42px;
+  background: #0078d2;
   border-radius: 6px;
+  transition: background .2s ease-in-out;
+
+  &:hover {
+    background: #0091ff;
+  }
 
   @media screen and (max-width: 490px){
     width: 100%;
+  }
+
+  .title_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.disable {
+    width: 142px;
+    pointer-events: none;
+
+    div > span.title_btn > div > div {
+      background: rgb(255, 255, 255);
+    }
   }
 }

@@ -97,7 +97,7 @@ export const Home = () => {
                error={error}
                errorMessage={errorMessage}
         />
-        <Button title={'Search'} onClick={getSearchCharacter} />
+        <Button title={'Search'} onClick={getSearchCharacter} disable={isLoading} />
       </div>
       <div className={s.result_container}>
         {isLoading ? (
