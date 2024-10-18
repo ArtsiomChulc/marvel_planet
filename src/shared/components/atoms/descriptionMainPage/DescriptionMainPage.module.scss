@@ -1,0 +1,19 @@
+.desc_container {
+  width: 100%;
+  padding: 15px;
+  color: #c4c7c8;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: calc(46px + 14 * (100vw / 1440));
+  }
+  p {
+    font-size: calc(20px + 12 * (100vw / 1440));
+  }
+}
