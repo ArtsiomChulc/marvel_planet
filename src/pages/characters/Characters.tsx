@@ -13,16 +13,17 @@ type Props = {
   currentPage: number
   pageCount: number
   onChangePage: (currentPage: number) => void
+  attributionText?: string;
 }
 
-export const Characters = ({ characters, currentPage, onChangePage, pageCount }: Props) => {
+export const Characters = ({ characters, attributionText, currentPage, onChangePage, pageCount }: Props) => {
 
   const isLoading = useAppSelector(state => state.characters.loading);
 
   const charactersItems = () => {
     if (characters.length !== 0 && !isLoading) {
       return characters.map(({ thumbnail, name, id }) => (
-        <CardCharacter key={id} name={name} src={thumbnail} id={id} />
+        <CardCharacter key={id} attributionText={attributionText} name={name} src={thumbnail} id={id} />
       ));
     }
   };

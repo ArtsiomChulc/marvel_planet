@@ -8,9 +8,10 @@ type Props = {
   name: string
   src: Thumbnail
   id?: number
+  attributionText?: string
 }
 
-export const CardCharacter = ({src, name, description, id}: Props) => {
+export const CardCharacter = ({src, name, description, attributionText, id}: Props) => {
   const navigate = useNavigate();
 
   const getSelectCharacter = (id: number | undefined) => {
@@ -29,6 +30,7 @@ export const CardCharacter = ({src, name, description, id}: Props) => {
           className={s.name_card}>{name}</h3>
         <p className={s.card_description}>{description}</p>
       </div>
+      <span className={s.card_attribution}>{attributionText}</span>
     </div>
   );
 };

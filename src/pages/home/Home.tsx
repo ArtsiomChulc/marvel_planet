@@ -18,8 +18,8 @@ import { PreLoader } from '../../shared/components/atoms/preLoader/PreLoader';
 export const Home = () => {
   const dispatch = useAppDispatch();
 
-  const foundCharacters = useAppSelector(state => state.characters.foundCharacter);
-  const isLoading = useAppSelector(state => state.characters.loading);
+  const { data, loading: isLoading, foundCharacter: foundCharacters } = useAppSelector(state => state.characters);
+  const { attributionText } = data;
 
   const [value, setValue] = useState('');
   const [focus, setFocus] = useState(false);
@@ -77,7 +77,7 @@ export const Home = () => {
   }
 
   const result = foundCharacters?.map(({ name, thumbnail, id }) => {
-    return <CardCharacter name={name} src={thumbnail} key={id} />;
+    return <CardCharacter attributionText={attributionText} name={name} src={thumbnail} key={id} />;
   });
 
   return (

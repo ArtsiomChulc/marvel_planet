@@ -13,6 +13,7 @@ export const GetCharacters = () => {
   const dispatch = useAppDispatch();
   const { data, loading: isLoading } = useAppSelector(state => state.characters);
   const { results, total } = data.data;
+  const { attributionText } = data;
 
   const skeletonCount = 6;
 
@@ -51,7 +52,7 @@ export const GetCharacters = () => {
           {getSkeletons()}
         </div>
       ) : (
-        <Characters characters={results} currentPage={currentPage} pageCount={totalPages} onChangePage={handlePageChange} />
+        <Characters attributionText={attributionText} characters={results} currentPage={currentPage} pageCount={totalPages} onChangePage={handlePageChange} />
       )}
     </>
   );
