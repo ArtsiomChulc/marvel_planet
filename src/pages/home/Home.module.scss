@@ -24,7 +24,17 @@
   flex-wrap: wrap;
 
   .wrap_result {
+
+    .result_box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
     button {
+      margin-left: 50px;
       margin-bottom: 15px;
     }
   }

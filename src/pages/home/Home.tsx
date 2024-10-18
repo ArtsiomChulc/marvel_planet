@@ -15,13 +15,17 @@ import {
 import { PreLoader } from '../../shared/components/atoms/preLoader/PreLoader';
 import s from './Home.module.scss';
 import {
-  DescriptionMainPage
+  DescriptionMainPage,
 } from '../../shared/components/atoms/descriptionMainPage/DescriptionMainPage';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
 
-  const { data, loading: isLoading, foundCharacter: foundCharacters } = useAppSelector(state => state.characters);
+  const {
+    data,
+    loading: isLoading,
+    foundCharacter: foundCharacters,
+  } = useAppSelector(state => state.characters);
   const { attributionText } = data;
 
   const [value, setValue] = useState('');
@@ -77,16 +81,18 @@ export const Home = () => {
   const clearCharacters = () => {
     dispatch(clearFoundCharacter());
     setValue('');
-  }
+  };
 
   const result = foundCharacters?.map(({ name, thumbnail, id }) => {
-    return <CardCharacter attributionText={attributionText} name={name} src={thumbnail} key={id} />;
+    return <CardCharacter attributionText={attributionText} name={name} src={thumbnail}
+                          key={id} />;
   });
 
   return (
     <>
-      <DescriptionMainPage title={'Search Marvel Heroes'} description={'Enter a search query,' +
-        ' click on the search button and get a list of your favorite Marvel heroes'}/>
+      <DescriptionMainPage title={'Search Marvel Heroes'}
+                           description={'Enter a search query,' +
+                             ' click on the search button and get a list of your favorite Marvel heroes'} />
       <div className={s.form_container}>
         <Input label={'Enter to search...'}
                value={value} onChange={getValue}
@@ -100,14 +106,17 @@ export const Home = () => {
         <Button title={'Search'} onClick={getSearchCharacter} disable={isLoading} />
       </div>
       <div className={s.result_container}>
-        {isLoading ? (
+        {!isLoading ? (
           <PreLoader />
         ) : result && result.length === 0 ? (
           <NotFoundCharacters />
         ) : (
           <div className={s.wrap_result}>
-            {result && result.length > 0 && <Button onClick={clearCharacters} title={'Clear'} />}
-            {result}
+            {result && result.length > 0 &&
+              <Button onClick={clearCharacters} title={'Clear'} />}
+            <div className={s.result_box}>
+              {result}
+            </div>
           </div>
         )}
       </div>
