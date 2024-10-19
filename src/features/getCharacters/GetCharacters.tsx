@@ -5,6 +5,7 @@ import { Characters } from '../../pages/characters/Characters';
 import {
   CardSkeleton,
 } from '../../shared/components/atoms/skeletons/cardCharacterSkeleton/CardSkeleton';
+import { PreLoader } from '../../shared/components/atoms/preLoader/PreLoader';
 
 export const GetCharacters = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,16 +44,21 @@ export const GetCharacters = () => {
   return (
     <>
       {isLoading ? (
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap', alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 15,
-        }}>
-          {getSkeletons()}
-        </div>
+        <>
+          <PreLoader/>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap', alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 15,
+          }}>
+            {getSkeletons()}
+          </div>
+        </>
       ) : (
-        <Characters attributionText={attributionText} characters={results} currentPage={currentPage} pageCount={totalPages} onChangePage={handlePageChange} />
+        <Characters attributionText={attributionText} characters={results}
+                    currentPage={currentPage} pageCount={totalPages}
+                    onChangePage={handlePageChange} />
       )}
     </>
   );
