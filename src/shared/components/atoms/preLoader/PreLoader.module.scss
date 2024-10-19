@@ -1,51 +1,68 @@
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  width: 60%;
-  height: 10px;
-}
-
-.loadingBar {
-  width: 100%;
-  height: 10px;
-  border-radius: 6px;
-  background-color: rgba(77, 74, 74, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-.loadingBar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  border-radius: 10px;
-  background-color: rgba(71, 24, 211, 0.6);
-  animation: loading 3s linear infinite;
-  animation-delay: 1.2s;
-}
-
-.loadingBar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 90%;
-  height: 100%;
-  border-radius: 10px;
-  background-color: rgb(71, 24, 211, 0.6);
-  animation: loading 3s linear infinite;
-}
-
 @keyframes loading {
   0% {
-    left: -100%;
+    left: -25%;
   }
   100% {
-    left: 100%;
+    left: 125%;
+  }
+}
+
+.loader {
+  width: 250px;
+  height: 50px;
+  background: #606060;
+  border-radius: 10px;
+  border: 1px #afabab solid;
+  overflow: hidden;
+  position: relative;
+  margin-block: 20px;
+
+  .loader_line {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: skew(-40deg);
+    background: rgba(250, 250, 250, 0.07);
+    box-shadow: 5px 0 20px rgba(244, 240, 240, 0.51);
+    animation: loading 2s linear infinite;
+
+    &:nth-child(1) {
+      animation-delay: -0.2s;
+      left: -10%;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.4s;
+      left: -20%;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.6s;
+      left: -30%
+    }
+    &:nth-child(4) {
+      animation-delay: -0.8s;
+      left: -40%
+    }
+    &:nth-child(5) {
+      animation-delay: -1s;
+      left: -50%
+    }
+    &:nth-child(6) {
+      animation-delay: -1.2s;
+      left: -60%
+    }
+    &:nth-child(7) {
+      animation-delay: -1.4s;
+      left: -70%
+    }
+    &:nth-child(8) {
+      animation-delay: -1.6s;
+      left: -80%
+    }
+    &:nth-child(9) {
+      animation-delay: -1.8s;
+      left: -90%
+    }
   }
 }
