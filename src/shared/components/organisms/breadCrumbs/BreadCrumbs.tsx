@@ -11,10 +11,13 @@ export const BreadCrumbs = () => {
     .map((crumb, index, array) => {
       currentPath += `/${crumb}`;
       const isLastCrumb = index === array.length - 1;
+
+      const crumbName = crumb.charAt(0).toUpperCase() + crumb.slice(1).replace(/-/g, ' ');
+
       return (
         <div className={s.crumb} key={crumb}>
           <NavLink to={currentPath} className={isLastCrumb ? s.last_crumb : ''}>
-            {crumb}
+            {crumbName}
           </NavLink>
         </div>
       );
@@ -22,6 +25,10 @@ export const BreadCrumbs = () => {
 
   return (
     <div className={s.crumbs}>
+      {pathName !== '/' && <div className={s.crumb}>
+        <NavLink to="/">Главная</NavLink>
+      </div>}
+
       {crumbs}
     </div>
   );
