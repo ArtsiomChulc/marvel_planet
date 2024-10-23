@@ -1,6 +1,5 @@
 import { getSourceImg } from '../../../helpers/getSrc';
 import { Thumbnail } from '../../../../api/types/storiesType';
-import { useNavigate } from 'react-router-dom';
 import s from './CardCharacter.module.scss';
 
 type Props = {
@@ -9,19 +8,16 @@ type Props = {
   src: Thumbnail
   id?: number
   attributionText?: string
+  getSelectCharacter?: (id: number | undefined) => void
 }
 
-export const CardCharacter = ({src, name, description, attributionText, id}: Props) => {
-  const navigate = useNavigate();
-
-  const getSelectCharacter = (id: number | undefined) => {
-    if (id) {
-      navigate(`/characters/${id}`);
-    }
+export const CardCharacter = ({src, name, description, attributionText, id, getSelectCharacter}: Props) => {
+  const getSelectCharacterHandler = (id: number | undefined) => {
+    getSelectCharacter && getSelectCharacter(id)
   }
 
   return (
-    <div className={s.cardContainer} onClick={() => getSelectCharacter(id)}>
+    <div className={s.cardContainer} onClick={() => getSelectCharacterHandler(id)}>
       <div className={s.imgBox}>
         <img src={getSourceImg(src)} alt={name} />
       </div>
