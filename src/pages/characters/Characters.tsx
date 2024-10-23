@@ -7,6 +7,7 @@ import { Pagination } from '@consta/uikit/Pagination';
 import { presetGpnDefault, Theme } from '@consta/uikit/Theme';
 import s from './Characters.module.scss';
 import './stylePagination.css'
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   characters: Character[];
@@ -20,10 +21,18 @@ export const Characters = ({ characters, attributionText, currentPage, onChangeP
 
   const isLoading = useAppSelector(state => state.characters.loading);
 
+  const navigate = useNavigate();
+
+  const getSelectCharacter = (id: number | undefined) => {
+    if (id) {
+      navigate(`/characters/${id}`);
+    }
+  }
+
   const charactersItems = () => {
     if (characters.length !== 0 && !isLoading) {
       return characters.map(({ thumbnail, name, id }) => (
-        <CardCharacter key={id} attributionText={attributionText} name={name} src={thumbnail} id={id} />
+        <CardCharacter key={id} attributionText={attributionText} getSelectCharacter={getSelectCharacter} name={name} src={thumbnail} id={id} />
       ));
     }
   };

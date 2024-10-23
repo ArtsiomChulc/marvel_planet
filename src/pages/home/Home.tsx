@@ -9,6 +9,7 @@ import { PreLoader } from '../../shared/components/atoms/preLoader/PreLoader';
 import { FC } from 'react';
 import { Character } from '../../api/types/charactersTypes';
 import s from './Home.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   foundCharacters: Character[] | null;
@@ -24,8 +25,16 @@ export const Home: FC<Props> = (
     attributionText,
     foundCharacters,
 }) => {
+  const navigate = useNavigate()
+
+  const getSelectCharacter = (id: number | undefined) => {
+    if (id) {
+      navigate(`/${id}`);
+    }
+  }
+
   const result = foundCharacters?.map(({ name, thumbnail, id }) => {
-    return <CardCharacter attributionText={attributionText} name={name} src={thumbnail}
+    return <CardCharacter attributionText={attributionText} getSelectCharacter={getSelectCharacter} id={id} name={name} src={thumbnail}
                           key={id} />;
   });
 
