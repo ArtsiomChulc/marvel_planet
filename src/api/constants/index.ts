@@ -1,0 +1,1 @@
+export const apiKeyMarvel = 'd49d5329a3a2479eaaedabc40e26a511';
