@@ -12,24 +12,21 @@ type Props = {
 }
 
 export const SelectCharacter = ({
-  src,
-  name,
-  attributionText,
-  description,
-  series
-}: Props) => {
+                                  src,
+                                  name,
+                                  attributionText,
+                                  description,
+                                  series,
+                                }: Props) => {
+  const defaultDescription = 'It\'s a pity that there is no description of this character, but that doesn\'t make him any less significant.';
 
-  const storyItem = series.map(({name, resourceURI}) => {
+  const seriesItem = series.map(({ name }) => {
     return (
       <>
-        Name: <li>{name}</li>
-        Resource:
-        <li>
-          <a href={`${resourceURI}'/82a3f4505d2327a6c55a63180971b5c6c0e7d47c'`}>Link</a>
-        </li>
+        <span className={s.series_item}>{name}</span>
       </>
-    )
-  })
+    );
+  });
 
   return (
     <div className={s.container_select_card}>
@@ -39,16 +36,16 @@ export const SelectCharacter = ({
           <img src={getSourceImg(src)} alt={'Selected hero' || attributionText} />
         </div>
         <div className={s.description_block}>
-          <p>{description}</p>
+          <p>{description || defaultDescription}</p>
+        </div>
+      </div>
+      <div className={s.series_wrapper}>
+        <h4>Appearance in episodes</h4>
+        <div className={s.series_items}>
+          {seriesItem}
         </div>
       </div>
 
-      <div>
-        <ul>
-          {storyItem}
-        </ul>
-
-      </div>
 
     </div>
   );
