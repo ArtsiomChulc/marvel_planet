@@ -1,0 +1,38 @@
+.container_select_card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .title_card {
+    font-size: 46px;
+    text-align: center;
+  }
+
+  .description_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .img_block {
+      width: 400px;
+      height: 500px;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    .description_block {
+      flex: 1 1 40%;
+      align-self: center;
+      font-size: 20px;
+    }
+  }
+}

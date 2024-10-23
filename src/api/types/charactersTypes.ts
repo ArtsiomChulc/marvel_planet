@@ -20,7 +20,7 @@ interface Comics {
   items: ComicItem[];
 }
 
-interface StoryItem {
+export interface StoryItem {
   resourceURI: string;
   name: string;
   type: string;
@@ -45,7 +45,7 @@ interface Events {
   items: EventItem[];
 }
 
-interface SeriesItem {
+export interface SeriesItem {
   resourceURI: string;
   name: string;
 }

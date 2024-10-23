@@ -6,11 +6,9 @@ import {
 } from '../../../bll/reducers/charactersSlice';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import {
-  CardCharacter,
-} from '../../../shared/components/molecules/cardCharacter/CardCharacter';
-import {
   CardSkeleton,
 } from '../../../shared/components/atoms/skeletons/cardCharacterSkeleton/CardSkeleton';
+import { SelectCharacter } from '../../selectCharacter/SelectCharacter';
 
 export const Character = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +16,8 @@ export const Character = () => {
   const isLoading = useAppSelector(state => state.characters.loading);
   const selectCharacter = useAppSelector(state => state.characters.selectCharacter);
   const character = selectCharacter && selectCharacter.length > 0 ? selectCharacter[0] : null;
+
+  const series = character?.series ? character.series.items : [];
 
   useEffect(() => {
     if (id) {
@@ -41,6 +41,7 @@ export const Character = () => {
   const cardSrc = character.thumbnail;
 
   return (
-    <CardCharacter name={cardName} description={cardDescription} src={cardSrc} />
+    // <CardCharacter name={cardName} description={cardDescription} src={cardSrc} />
+    <SelectCharacter name={cardName} description={cardDescription} src={cardSrc} series={series} />
   );
 };
