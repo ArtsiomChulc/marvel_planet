@@ -1,20 +1,3 @@
-.form_container {
-  max-width: 800px;
-  width: 100%;
-  background: #606060;
-  padding: 15px 20px;
-  border: 1px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 490px){
-    flex-wrap: wrap;
-  }
-}
-
 .result_container {
   width: 100%;
   display: flex;
@@ -24,6 +7,9 @@
   flex-wrap: wrap;
 
   .wrap_result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .result_box {
       display: flex;
@@ -34,8 +20,7 @@
     }
 
     button {
-      margin-left: 50px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
     }
   }
 }
