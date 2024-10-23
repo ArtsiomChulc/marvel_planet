@@ -4,8 +4,8 @@ import { Layout } from '../../components/layout/Layout';
 import { Stories } from '../../../pages/stories/Stories';
 import { Character } from '../../../pages/characters/components/Character';
 import { GetCharacters } from '../../../features/getCharacters/GetCharacters';
-import { Home } from '../../../pages/home/Home';
 import { Creators } from '../../../pages/creators/Creators';
+import { GetHome } from '../../../features/getHomePage/GetHomePage';
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: PATHS.main,
-        element: <Home/>,
+        element: <GetHome />,
       },
       {
         path: PATHS.characters,
