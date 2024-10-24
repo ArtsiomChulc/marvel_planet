@@ -6,4 +6,6 @@
   margin-bottom: 30px;
   border-bottom: 5px outset rgba(255,255,255,0.15);
   border-radius: 0 0 10px 10px;
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
 }
