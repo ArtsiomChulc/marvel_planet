@@ -24,7 +24,7 @@ export const CardCharacter = ({src, name, description, attributionText, id, getS
       <div className={s.text_wrapper}>
         <h3
           className={s.name_card}>{name}</h3>
-        <p className={s.card_description}>{description}</p>
+        {description && <p className={s.card_description}>{description}</p>}
       </div>
       <span className={s.card_attribution}>{attributionText}</span>
     </div>

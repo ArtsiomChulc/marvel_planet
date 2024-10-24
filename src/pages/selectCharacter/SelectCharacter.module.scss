@@ -9,6 +9,7 @@
   .title_card {
     font-size: 46px;
     text-align: center;
+    margin-bottom: 20px;
   }
 
   .description_wrapper {
@@ -17,6 +18,7 @@
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin-bottom: 20px;
     background: rgba(255, 255, 255, 0.01);
 
     .img_block {
@@ -49,7 +51,9 @@
     }
     .series_items {
       display: flex;
+      flex-direction: column;
       gap: 10px;
+      padding: 15px;
       flex-wrap: wrap;
 
       .series_item {
