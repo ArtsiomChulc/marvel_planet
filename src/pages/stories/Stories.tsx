@@ -2,8 +2,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import { useEffect } from 'react';
 import { Loader } from '../../shared/components/atoms/loader/Loader';
 import { getStories } from '../../bll/reducers/storiesSlice';
-import { Thumbnail } from '../../api/types/storiesType';
-import commonImg from '../../assets/img/common_img.webp';
+import { getSourceImg } from '../../shared/helpers/getSrc';
 
 export const Stories = () => {
   const dispatch = useAppDispatch();
@@ -14,12 +13,6 @@ export const Stories = () => {
     dispatch(getStories());
   }, [dispatch]);
 
-  const getSourceImg = (thumb: Thumbnail | null) => {
-    if (thumb) {
-      return `${thumb.path}.${thumb.extension}`;
-    }
-    return commonImg;
-  };
 
   if (isLoading) {
     return <Loader />;
