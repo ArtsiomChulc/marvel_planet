@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../app/hooks/hooks';
-import { getSourceImg } from '../../shared/helpers/getSrc';
 import { GetCreators } from '../../features/getCreators/GetCreators';
+import { getSourceImg } from '../../shared/helpers/getSourceImg';
 import s from './Creators.module.scss';
 
 export const Creators = () => {

@@ -1,7 +1,7 @@
-import s from './SelectCharacter.module.scss';
 import { Thumbnail } from '../../api/types/storiesType';
-import { getSourceImg } from '../../shared/helpers/getSrc';
 import { SeriesItem } from '../../api/types/charactersTypes';
+import { getSourceImg } from '../../shared/helpers/getSourceImg';
+import s from './SelectCharacter.module.scss';
 
 type Props = {
   description?: string

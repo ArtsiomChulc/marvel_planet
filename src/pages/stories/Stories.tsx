@@ -2,12 +2,22 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import { useEffect } from 'react';
 import { Loader } from '../../shared/components/atoms/loader/Loader';
 import { getStories } from '../../bll/reducers/storiesSlice';
-import { getSourceImg } from '../../shared/helpers/getSrc';
+import { CardStories } from '../../shared/components/molecules/cardStories/CardStories';
+import s from './Stories.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const Stories = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(state => state.stories.loading);
   const stories = useAppSelector(state => state.stories.data.data.results);
+
+  const navigate = useNavigate();
+
+  const getSelectStory = (id: number | undefined) => {
+    if (id) {
+      navigate(`/story/${id}`);
+    }
+  }
 
   useEffect(() => {
     dispatch(getStories());
@@ -18,15 +28,10 @@ export const Stories = () => {
     return <Loader />;
   }
 
-  return <div>
+  return <div className={s.container_cards}>
     {stories && stories.length > 0 ? (
-      stories.map(({ thumbnail, title, description }, index) => (
-        <div key={index} style={{ width: '200px' }}>
-          <div>{title}</div>
-          <div>{description}</div>
-          <img style={{ width: 100 }} src={getSourceImg(thumbnail)} alt="Marvel" />
-
-        </div>
+      stories.map(({ thumbnail, title, description, id }) => (
+        <CardStories key={id} name={title} src={thumbnail} description={description} getSelectCharacter={getSelectStory} />
       ))
     ) : (
       <div>No stories found</div>
