@@ -6,9 +6,8 @@ export const getMenuTitle = (array: MenuItemsText[]) => {
   return array.map(({ title, id, path }) => {
     if (path) {
       return (
-        <li>
+        <li key={id}>
         <NavLink
-          key={id}
           className={({ isActive }) => (isActive ? s.active : '')}
           to={path}
         >
