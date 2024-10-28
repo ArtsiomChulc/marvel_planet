@@ -3,13 +3,11 @@ export interface Thumbnail {
   extension: string | null;
 }
 
-// Тип для элементов комиксов, серий и событий
 export interface ItemReference {
   resourceURI: string;
   name: string;
 }
 
-// Тип для коллекций комиксов, серий, событий, персонажей и создателей
 export interface Collection<T> {
   available: number;
   returned: number;
@@ -17,29 +15,27 @@ export interface Collection<T> {
   items: T[];
 }
 
-// Тип для персонажей и создателей с ролью
 export interface CharacterReference extends ItemReference {
   role: string;
 }
 
-// Тип для предметов
+
 export interface Item {
   id: number;
-  title: string; // Заменено с name на title
+  title: string;
   description: string;
   resourceURI: string;
-  type: string; // Новый тип
+  type: string;
   modified: Date;
-  thumbnail: Thumbnail | null; // Используем тип для изображения
-  comics: Collection<ItemReference>; // Ссылка на комиксы
-  series: Collection<ItemReference>; // Ссылка на серии
-  events: Collection<ItemReference>; // Ссылка на события
-  characters: Collection<CharacterReference>; // Ссылка на персонажей
-  creators: Collection<CharacterReference>; // Ссылка на создателей
-  originalissue: ItemReference; // Ссылка на оригинальный выпуск
+  thumbnail: Thumbnail | null;
+  comics: Collection<ItemReference>;
+  series: Collection<ItemReference>;
+  events: Collection<ItemReference>;
+  characters: Collection<CharacterReference>;
+  creators: Collection<CharacterReference>;
+  originalissue: ItemReference;
 }
 
-// Основной тип ответа
 export interface ApiResponseStories {
   code: number;
   status: string;
@@ -51,14 +47,13 @@ export interface ApiResponseStories {
     limit: number;
     total: number;
     count: number;
-    results: Item[]; // Используем тип Item
+    results: Item[];
   };
   etag: string;
 }
 
-// Начальное состояние для Redux
 export interface InitialStateStoriesI {
-  data: ApiResponseStories; // Обновленный тип для данных
+  data: ApiResponseStories;
   loading: boolean;
   error: string | null;
 }

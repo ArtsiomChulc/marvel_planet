@@ -1,5 +1,10 @@
 .cardContainer {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 600px;
   background: rgba(15, 15, 17, 0.01);
   backdrop-filter: blur(5px);
   cursor: pointer;
@@ -9,20 +14,26 @@
   border: 1px solid rgba(240, 255, 250, 0.44);
   color: white;
 
-  &:hover .text_wrapper:after {
-    top: 0;
-  }
-
-  &:hover .name_card {
-    color: #0f0f11;
+  .name_card {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+    background: rgba(47, 44, 44, 0.3);
+    backdrop-filter: blur(35px);
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+    z-index: 3;
   }
 
   .imgBox {
     width: 100%;
-    height: 300px;
+    height: 350px;
     margin-bottom: 10px;
     border-radius: 10px;
     overflow: hidden;
+    flex: 1;
 
     img {
       width: 100%;
@@ -40,39 +51,8 @@
     position: relative;
     overflow: hidden;
 
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      background: tomato;
-      transition: all .3s ease-in-out;
-    }
-
-    .name_card {
-      text-transform: capitalize;
-      text-align: left;
-      font-weight: 600;
-      font-size: 28px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      position: relative;
-      z-index: 3;
-      transition: all .3s ease-in-out;
-    }
-
     .card_description {
       font-size: 18px;
     }
-  }
-  .card_attribution {
-    font-size: 10px;
-    padding-left: 15px;
-    color: rgba(240, 255, 250, 0.8);
   }
 }

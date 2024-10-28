@@ -16,9 +16,6 @@ export const apiMain = {
   getStories() {
     return axiosInstance.get<ApiResponseStories>('stories');
   },
-  getStoriesById(id: number) {
-    return axiosInstance.get<ApiResponse>(`story/${id}`);
-  },
   getCreators() {
     return axiosInstance.get<IResponseCreator>('creators');
   },

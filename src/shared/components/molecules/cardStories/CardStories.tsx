@@ -4,29 +4,21 @@ import s from './CardStories.module.scss';
 
 type Props = {
   description?: string
-  name: string
+  title: string
   src: Thumbnail | null
-  id?: number
-  attributionText?: string
-  getSelectCharacter?: (id: number | undefined) => void
 }
 
-export const CardStories = ({src, name, description, attributionText, id, getSelectCharacter}: Props) => {
-  const getSelectCharacterHandler = (id: number | undefined) => {
-    getSelectCharacter && getSelectCharacter(id)
-  }
+export const CardStories = ({ src, title, description }: Props) => {
 
   return (
-    <div className={s.cardContainer} onClick={() => getSelectCharacterHandler(id)}>
+    <div className={s.cardContainer}>
+      <h3 className={s.name_card} title={title}>{title}</h3>
       <div className={s.imgBox}>
-        <img src={getSourceImg(src)} alt={name} />
+        <img src={getSourceImg(src)} alt={title} />
       </div>
-      <div className={s.text_wrapper}>
-        <h3
-          className={s.name_card} title={name}>{name}</h3>
-        {description && <p className={s.card_description}>{description}</p>}
-      </div>
-      <span className={s.card_attribution}>{attributionText}</span>
+      {description && <div className={s.text_wrapper}>
+        <p className={s.card_description}>{description}</p>
+      </div>}
     </div>
   );
 };
