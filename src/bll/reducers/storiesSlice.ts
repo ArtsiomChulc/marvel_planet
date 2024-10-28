@@ -18,7 +18,7 @@ const initialState: InitialStateStoriesI = {
       limit: 20,
       total: 0,
       count: 0,
-      results: [] as Item[], // Изменение на Item
+      results: [] as Item[],
     },
     etag: '',
   },
