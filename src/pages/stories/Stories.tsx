@@ -24,7 +24,7 @@ export const Stories = () => {
         <div key={index} style={{ width: '200px' }}>
           <div>{title}</div>
           <div>{description}</div>
-          <img style={{ width: 100 }} src={getSourceImg(thumbnail)} alt="df" />
+          <img style={{ width: 100 }} src={getSourceImg(thumbnail)} alt="Marvel" />
 
         </div>
       ))
