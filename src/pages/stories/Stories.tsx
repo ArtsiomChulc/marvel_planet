@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Loader } from '../../shared/components/atoms/loader/Loader';
 import { getStories } from '../../bll/reducers/storiesSlice';
 import { Thumbnail } from '../../api/types/storiesType';
+import commonImg from '../../assets/img/common_img.webp';
 
 export const Stories = () => {
   const dispatch = useAppDispatch();
@@ -14,11 +15,11 @@ export const Stories = () => {
   }, [dispatch]);
 
   const getSourceImg = (thumb: Thumbnail | null) => {
-    if(thumb) {
-      return `${thumb.path}.${thumb.extension}`
+    if (thumb) {
+      return `${thumb.path}.${thumb.extension}`;
     }
-    return undefined
-  }
+    return commonImg;
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -26,15 +27,16 @@ export const Stories = () => {
 
   return <div>
     {stories && stories.length > 0 ? (
-      stories.map(({ thumbnail, title }, index) => (
-        <div key={index} style={{width: '200px'}}>
-          {title}
-          <img style={{width: 100}} src={getSourceImg(thumbnail)} alt="df" />
+      stories.map(({ thumbnail, title, description }, index) => (
+        <div key={index} style={{ width: '200px' }}>
+          <div>{title}</div>
+          <div>{description}</div>
+          <img style={{ width: 100 }} src={getSourceImg(thumbnail)} alt="df" />
 
         </div>
       ))
     ) : (
       <div>No stories found</div>
     )}
-  </div>
+  </div>;
 };
