@@ -35,8 +35,14 @@ export const GetHome = () => {
   }, [dispatch]);
 
   const getValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    if (error) {
+    const inputValue = e.target.value;
+    setValue(inputValue);
+
+    const regex = /^[A-Za-z\s]*$/;
+    if (!regex.test(inputValue)) {
+      setError(true);
+      setErrorMessage('Enter only English letters');
+    } else {
       setError(false);
       setErrorMessage('');
     }
